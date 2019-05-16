@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry location="mysql-connector-java-5.1.34.jar"/>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/wanlicloud" userId="root" password="123456">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="net.wanho.pojo" targetProject="./src">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="net.wanho.mapper" targetProject="./src">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="net.wanho.mapper" targetProject="./src">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+        <!--<table tableName="after_sale" domainObjectName="AfterSale">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="AFTER_SALE_ID" sqlStatement="MySql"
+                          identity="true"/>
+        </table>
+
+        <table tableName="capital" domainObjectName="Capital">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="CAPITAL_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="company" domainObjectName="Company">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="COMPANY_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="customer" domainObjectName="Customer">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="CUSTOMER_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="employee_composition" domainObjectName="EmployeeComposition">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="COMPOSITION_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+
+        <table tableName="favorite_detail" domainObjectName="FavoriteDetail">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="FAVORITE_DETAIL_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+
+        <table tableName="manager" domainObjectName="Manager">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="MANAGER_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+
+        <table tableName="notice" domainObjectName="Notice">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="NOTICE_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+
+        <table tableName="orders" domainObjectName="Orders">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="ORDER_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="orders_detail"
+               domainObjectName="OrdersDetail">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="ORDERS_DETAIL_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="orders_express_detail" domainObjectName="OrdersExpressDetail">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="DETAIL_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="orders_express_info" domainObjectName="OrdersExpressInfo">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="EXPRESS_INFO_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="orders_group" domainObjectName="OrdersGroup">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="ORDERS_GROUP_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+
+        <table tableName="orders_log" domainObjectName="OrdersLog">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="ORDERS_LOG_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="shop_cart" domainObjectName="ShopCart">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="SHOPPING_CART_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="premission" domainObjectName="Premission">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="PREMISSION_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+
+        <table tableName="prodcut_pics" domainObjectName="ProductPics">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="PROD_PICS_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="prodcut_tag_relations" domainObjectName="ProdcutTagRelations">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="RELATIONS_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="product" domainObjectName="Product">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="PRODUCT_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="product_element_attr" domainObjectName="ProductElementAttr">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="ATTR_DETAIL_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+
+        <table tableName="product_sale_attr" domainObjectName="ProductSaleAttr">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="PROD_SALE_ATTR_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="product_sale_attr_config" domainObjectName="ProductSaleAttrConfig">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="CONFIG_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+
+        <table tableName="product_sale_element" domainObjectName="ProductSaleElement">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="ELEMENT_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="product_tag" domainObjectName="ProductTag">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="TAG_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+
+        <table tableName="product_type_cd" domainObjectName="ProductTypeCd">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="PRODUCT_TYPE_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="products_industry" domainObjectName="ProductsIndustry">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="PRODUCTS_INDUSTRY_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="role_premission_relation" domainObjectName="RolePremissionRelation">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="RELATION_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="seller" domainObjectName="Seller">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="SELLER_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="slide_show" domainObjectName="SlideShow">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="SLIDE_SHOW_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="system_data_dictionary" domainObjectName="SystemDataDictionary">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="D_ID" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="user" domainObjectName="User">
+            <property name="enableSelectByExample" value="true"/>
+            <property name="enableDeleteByExample" value="true"/>
+            <property name="enableCountByExample" value="true"/>
+            <property name="enableUpdateByExample" value="true"/>
+            <property name="enableUpdateByPrimaryKey" value="true"/>
+            <generatedKey column="USER_ID" sqlStatement="MySql" identity="true"/>
+        </table>-->
+
+         <!-- <table tableName="system_data_dictionary" domainObjectName="SystemDataDictionary">
+              <generatedKey column="d_id" sqlStatement="MySql"
+                            identity="true"/>
+          </table>
+
+          <table tableName="system_exception_logs" domainObjectName="SystemExceptionLogs">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+          <table tableName="tb_account" domainObjectName="TbAccount">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+          <table tableName="tb_content" domainObjectName="TbContent">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+          <table tableName="tb_content_catagory" domainObjectName="TbContentCatagory">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+
+          <table tableName="tb_cust_info" domainObjectName="TbCustInfo">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+
+          <table tableName="tb_cust_orders" domainObjectName="TbCustOrders">
+              <generatedKey column="cust_orders_seq" sqlStatement="MySql" identity="true"/>
+          </table>
+
+
+          <table tableName="tb_item" domainObjectName="TbItem">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+
+          <table tableName="tb_item_category" domainObjectName="TbItemCategory">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+          <table tableName="tb_item_product_attr_relations"
+                 domainObjectName="TbTtemProductAttrRelations">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+          <table tableName="tb_operation_logs" domainObjectName="TbOperationLogs">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+          <table tableName="tb_orders_detail" domainObjectName="TbOrdersDetail">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+          <table tableName="tb_orders_log" domainObjectName="TbOrdersLog">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+
+          <table tableName="tb_permission" domainObjectName="TbPermission">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+          <table tableName="tb_product_desc" domainObjectName="TbProductDesc">
+              <generatedKey column="pid" sqlStatement="MySql" identity="true"/>
+          </table>
+
+
+          <table tableName="tb_products" domainObjectName="TbProducts">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+          <table tableName="tb_products_element" domainObjectName="TbProductsElement">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+          <table tableName="tb_products_elements_attr" domainObjectName="TbProductsElementsAttr">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+          <table tableName="tb_promotion_detail" domainObjectName="TbPromotionDetail">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+
+          <table tableName="tb_promotion_template" domainObjectName="TbPromotionTemplate">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+          <table tableName="tb_role" domainObjectName="TbRole">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+
+          <table tableName="tb_seller_info" domainObjectName="TbSellerInfo">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+          <table tableName="tb_seller_orders" domainObjectName="TbSellerOrders">
+              <generatedKey column="seller_orders_seq" sqlStatement="MySql" identity="true"/>
+          </table>
+
+
+          <table tableName="tb_shop_cart" domainObjectName="TbShopCart">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+
+          <table tableName="tb_user" domainObjectName="TbUser">
+              <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+          </table>
+-->
+
+        <table tableName="tb_ms_item" domainObjectName="TbMsItem">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="tb_ms_order" domainObjectName="TbMsOrder">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <!--<table tableName="roles_permissions" domainObjectName="RolesPermissions">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sessions" domainObjectName="Sessions">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="student" domainObjectName="Student">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sys_organization" domainObjectName="SysOrganization">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sys_resource" domainObjectName="SysResource">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sys_role" domainObjectName="SysRole">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="sys_user" domainObjectName="SysUser">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="user_roles" domainObjectName="UserRoles">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+     &lt;!&ndash;   <table tableName="users" domainObjectName="User">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>&ndash;&gt;
+        <table tableName="t_user" domainObjectName="User">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>-->
+
+        <!--<table tableName="t_user" domainObjectName="User">
+            <generatedKey column="user_id" sqlStatement="MySql" identity="true"/>
+        </table>-->
+        <!-- <table tableName="t_role" domainObjectName="Role">
+             <generatedKey column="role_id" sqlStatement="MySql" identity="true"/>
+         </table>
+         <table tableName="t_user_role" domainObjectName="UserRole">
+             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+         </table>-->
+
+        <!--  <table tableName="t_permission" domainObjectName="Permission">
+              <generatedKey column="permission_id" sqlStatement="MySql" identity="true"/>
+          </table>-->
+
+       <!-- <table tableName="t_role_permission" domainObjectName="RolePermission">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>-->
+       <!-- <table tableName="user" domainObjectName="User">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table tableName="category" domainObjectName="Category">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>-->
+      <!--  <table tableName="file" domainObjectName="File">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>-->
+    </context>
+</generatorConfiguration>
